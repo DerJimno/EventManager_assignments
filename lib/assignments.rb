@@ -109,3 +109,11 @@ file = CSV.open("file.csv", headers: true, header_converters: :symbol)
 most_use_day = most_day(get_days(analyze_data(file))).max_by(3){|k,v| v}.to_h
 
 puts "#{most_use_day} are the days most people register!"
+
+
+#=> Most active hours to post ads:
+#=> - At 20:00h, there are a maximum of 8 people registered, first: 20:07:08 last: 20:37:01
+#=> - Next at 07:00h, with a maximum of 5 people registered, first: 07:04:06 last: 07:48:36
+#=> - Finally at 13:00h, for maximum of 4 people registered, first: 13:12:02 last: 13:40:00
+#=> Most active days to post ads:
+#=> {"Tuesday"=>8, "Monday"=>7, "Friday"=>6} are the days most people register!
