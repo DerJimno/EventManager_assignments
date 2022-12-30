@@ -62,27 +62,27 @@ def convert_hour(time)
  result = Time.strptime("#{time}", "%k").strftime("%H:%M")
 end
 
-def from_to(hour)
+def first_last(hour)
   file = CSV.open("file.csv", headers: true, header_converters: :symbol)
-  from = []
+  all_range = []
   file.each do |line|
     if Time.parse(line[0]).hour == hour
-      from << Time.parse(line[:time]).strftime("%H:%M:%S")
+      all_range << Time.parse(line[:time]).strftime("%H:%M:%S")
     end
   end
-  from
+  all_range
 end
 
 puts "Most active hours to post ads:"
 puts "- At #{convert_hour(most_use_hour[0][0])}h, there are\
  a maximum of #{most_use_hour[0][1]} people\
- registered, first: #{from_to(most_use_hour[0][0]).sort[0]} last: #{from_to(most_use_hour[0][0]).sort[-1]}"
+ registered, first: #{first_last(most_use_hour[0][0]).sort[0]} last: #{first_last(most_use_hour[0][0]).sort[-1]}"
 puts "- Next at #{convert_hour(most_use_hour[1][0])}h, with\
  a maximum of #{most_use_hour[1][1]} people registered,\
- first: #{from_to(most_use_hour[1][0]).sort[0]} last: #{from_to(most_use_hour[1][0]).sort[-1]}"
+ first: #{first_last(most_use_hour[1][0]).sort[0]} last: #{first_last(most_use_hour[1][0]).sort[-1]}"
 puts "- Finally at #{convert_hour(most_use_hour[2][0])}h, for\
  maximum of #{most_use_hour[2][1]} people registered,\
- first: #{from_to(most_use_hour[2][0]).sort[0]} last: #{from_to(most_use_hour[2][0]).sort[-1]}"
+ first: #{first_last(most_use_hour[2][0]).sort[0]} last: #{first_last(most_use_hour[2][0]).sort[-1]}"
 
 
  # 3rd Assignment: Day of the Week Targeting:
