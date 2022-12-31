@@ -1,6 +1,5 @@
 require 'csv'
 require 'time'
-
 # 1st Assignment: Clean Phone Numbers:
 
 def clean_number(number)
@@ -12,7 +11,6 @@ def clean_number(number)
     "bad number!"
   end
 end
-# puts clean_number("5722397160")
 
 num_file = CSV.open("file.csv", headers: true, header_converters: :symbol)
 def number(file)
@@ -26,7 +24,7 @@ def number(file)
   end
 end
 
-# number(num_file)            commented to for brevity reasons
+# number(num_file)           # commented to for brevity reasons
 
 # 2nd Assignment: Time Targeting:
 
