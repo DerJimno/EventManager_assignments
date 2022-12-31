@@ -1,3 +1,6 @@
+require 'csv'
+require 'time'
+
 # 1st Assignment: Clean Phone Numbers:
 
 def clean_number(number)
@@ -10,9 +13,8 @@ def clean_number(number)
   end
 end
 # puts clean_number("5722397160")
-require 'csv'
-num_file = CSV.open("file.csv", headers: true, header_converters: :symbol)
 
+num_file = CSV.open("file.csv", headers: true, header_converters: :symbol)
 def number(file)
   num_arr = []
   file.each do |line|
@@ -27,8 +29,6 @@ end
 # number(num_file)            commented to for brevity reasons
 
 # 2nd Assignment: Time Targeting:
-
-require 'time'
 
 file = CSV.open("file.csv", headers: true, header_converters: :symbol)
 
@@ -109,7 +109,6 @@ file = CSV.open("file.csv", headers: true, header_converters: :symbol)
 most_use_day = most_day(get_days(analyze_data(file))).max_by(3){|k,v| v}.to_h
 
 puts "#{most_use_day} are the days most people register!"
-
 
 #=> Most active hours to post ads:
 #=> - At 20:00h, there are a maximum of 8 people registered, first: 20:07:08 last: 20:37:01
